@@ -1,0 +1,13 @@
+@import 'src/assets/style/variables.scss';
+
+.page-layout {
+    position: relative;
+
+}
+
+.page-content {
+    height: calc(100% - $page-header-height - $page-footer-height);
+    padding-top: $page-header-height;
+    // padding-top: 
+    padding-bottom: $page-footer-height;
+}

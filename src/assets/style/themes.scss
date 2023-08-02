@@ -1,0 +1,74 @@
+$theme-map: (
+    dark: (primary: #0984e3,
+        secondary: #74b9ff,
+        success: #00b894,
+        warning: #fdcb6e,
+        error: #d63031,
+        base: #fff,
+        stroke: #2d3436,
+
+        bg-primary: #2c3e50,
+        bg-secondary: #0097e6,
+
+        txt-primary: #dfe6e9,
+
+        loading-mask: rgba(232, 232, 232, 0.5)),
+
+    light: (primary: #0984e3,
+        secondary: #74b9ff,
+        success: #00b894,
+        warning: #fdcb6e,
+        error: #d63031,
+        base: #000,
+        stroke: #c5c5c5,
+
+        bg-primary: #ecf0f1,
+        bg-secondary: #dcdde1,
+
+        txt-primary: #1e272e,
+
+        loading-mask: rgba(232, 232, 232, 0.5))
+);
+
+@function merge($arr) {
+    $result: ();
+
+    @each $colorName,
+    $colorVal in $arr {
+        $result: map-merge($result,
+            ($colorName: $colorVal,
+            ));
+    }
+
+    @return $result;
+}
+
+@mixin theme($theme) {
+    .theme-#{$theme} & {
+        @content;
+    }
+}
+
+@mixin themes {
+
+    @each $theme,
+    $map in $theme-map {
+        .theme-#{$theme} & {
+            $themeColors: merge($map) !global;
+            transition: background-color 0.3s ease-out;
+            @content;
+        }
+    }
+}
+
+@function themeColor($key) {
+    @if map-has-key($themeColors, $key) {
+        @return map-get($themeColors, $key);
+    }
+
+    @if map-has-key($themeColors, $key) {
+        @return map-get($themeColors, $key);
+    }
+
+    @return #ffffff;
+}

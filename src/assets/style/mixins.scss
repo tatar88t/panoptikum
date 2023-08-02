@@ -1,0 +1,38 @@
+@import 'src/assets/style/variables.scss';
+
+
+@mixin scrollBarDark {
+    &::-webkit-scrollbar {
+        width: 10px;
+        /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $scroll-track-dark;
+        border-left: 1px solid $scroll-border;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 99rem;
+        background-color: $scroll-thumb-dark;
+        border: 2px solid $scroll-border;
+    }
+}
+
+@mixin scrollBarLight {
+    &::-webkit-scrollbar {
+        width: 10px;
+        /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $scroll-track-light;
+        border-left: 1px solid #b1b1b1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 99rem;
+        background-color: $scroll-thumb-light;
+        border: 2px solid #b1b1b1;
+    }
+}

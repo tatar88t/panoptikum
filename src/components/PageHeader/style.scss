@@ -1,0 +1,13 @@
+@import 'src/assets/style/themes';
+@import 'src/assets/style/variables';
+
+.page-header {
+    position: fixed;
+    height: $page-header-height;
+    width: 100%;
+
+    @include themes {
+        background-color: themeColor(bg-secondary);
+    }
+
+}

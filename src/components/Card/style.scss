@@ -1,0 +1,13 @@
+@import 'src/assets/style/themes.scss';
+
+.card {
+
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+
+    @include themes {
+        background: themeColor(bg-secondary);
+    }
+
+}
